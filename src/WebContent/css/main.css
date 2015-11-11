@@ -1,0 +1,135 @@
+p {
+    font-weight: 700;
+}
+
+body {
+    background-color:rgb(123, 128, 128);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.mandatory {
+    font-size: 2em;
+    color: #A30000;
+}
+
+.header {
+    background-color: rgb(35, 43, 43);
+    background-color: rgba(35, 43, 43, 0.97);
+    margin-bottom: 0;
+    color: #eee;
+}
+
+.footer {
+    height: 75px;
+    background-color: rgb(35, 43, 43);
+    background-color: rgba(35, 43, 43, 0.97);
+    color: #eee;
+    padding-top: 30px;
+}
+
+.input-field {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.input-field.heavy {
+    margin-bottom: 5px;
+    margin-top: 25;
+}
+
+.carousel-body {
+    background-color: rgb(35, 43, 43);
+}
+
+#fail-validation-alert {
+    visibility: hidden;
+}
+
+#admin-page-access-btn {
+    opacity: 0.0;
+    float: right;
+    margin-right: 10px;
+}
+
+#admin-page-access-btn:hover {
+    opacity: 1.0;
+}
+
+label {
+    width: 100%;
+}
+
+#admin-page-body-wrapper {
+    background-color: rgb(123, 128, 128);
+}
+
+#admin-csv-util-export-btn{
+width: 200px;
+margin-right: 10px;
+}
+
+.input-box-border {
+    border: 1px solid #ccc;
+    padding: 5px 20px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.full-btn {
+    width: 100%;
+}
+
+.top-margin {
+    margin-top: 20px;
+}
+
+.some-margin {
+    margin: 5px;
+}
+
+#carousel .item img {
+    width: 100%;
+    height: auto;
+}
+
+.form-horizontal .inline-form-input {
+    width: 49.5%;
+    display: inline-block;
+}
+
+body .content {
+    min-height: 100vh;
+}
+
+.container.carousel-container {
+    vertical-align: middle;
+}
+
+body .form-overlay {
+    background-image: url('../include/transparent-white.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    min-height: 100vh;
+}
+
+body .fail-validation {
+    border-color: #A30000;
+    border-width: 1px;
+    background-color: #FFFFDB;
+    color: #A30000;
+    font-weight: bold;
+}
+
+.checkbox label, .radio label{
+    width:auto;
+}

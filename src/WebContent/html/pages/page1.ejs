@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partial/header.ejs %>
+</head>
+
+<body style="background-image : url('../include/carousel/<%=background%>');">
+    <div class="content">
+        <div class="jumbotron header">
+            <div class="container">
+                <h1><%=title%></h1>
+                <p><%=description%></p>
+            </div>
+        </div>
+
+        <div class="container-fluid content">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6 form-overlay">
+                <div id="fail-validation-alert" class="alert alert-danger alert-dismissible">
+                    <p>Please Complete All Mandatory Fields</p>
+                </div>
+                <form class="form-horizontal" id="first-fm" action="/post-first-page" method="post" autocomplete="off">
+                    <div class="input-group input-field inline-form-input">
+                        <label for="guestFName" class="input-descriptor" id="page1-first-name-label">What is Your First Name?<span class="mandatory">&nbsp;*</span></label>
+                        <input id="first-name-input" type="text" class="form-control" placeholder="First Name" aria-describedby="page1-first-name-label" name="guestFName" autofocus />
+                    </div>
+                    <div class="input-group input-field inline-form-input">
+                        <label for="guestFName" class="input-descriptor" id="page1-last-name-label">What is Your Last Name?<span class="mandatory">&nbsp;*</span></label>
+                        <input id="last-name-input" type="text" class="form-control" placeholder="Last Name" aria-describedby="page1-last-name-label" name="guestLName" />
+                    </div>
+                    <div class="input-group input-field">
+                        <label for="guestEmail" class="input-descriptor" id="page1-email-label">What is Your Email Address?<span class="mandatory">&nbsp;*</span></label>
+                        <input id="email-input" type="email" class="form-control" placeholder="email@site.com" aria-describedby="page1-email-label" name="guestEmail" />
+                    </div>
+                    <p>Are You Currently Working with an Agent?<span class="mandatory">&nbsp;*</span></p>
+                    <div class="radio input-field">
+                        <label>
+                            <input id="yes-agent-radio" type="radio" name="guestHasAgent" value="true"> Yes
+                        </label>
+                    </div>
+                    <div class="radio input-field">
+                        <label>
+                            <input id="no-agent-radio" type="radio" name="guestHasAgent" value="false"> No
+                        </label>
+                    </div>
+                    <div class="input-group input-field">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+
+        </div>
+        <div class="footer">
+            <input id="admin-page-access-btn" class="btn btn-info btn-sm" type="button" value="admin tools" />
+        </div>
+    </div>
+    <% include ../partial/extras.ejs %>
+</body>
+
+</html>

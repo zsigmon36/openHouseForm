@@ -1,0 +1,14 @@
+{
+  "name": "open-house-form",
+  "version": "0.1.0",
+  "description": "a form for guests at the open house to enter their information.  works offline",
+  "main": "node/webServer.js",
+  "repository": "",
+  "author": "Zachary Sigmon <zachary.sigmon@hp.com>",
+  "dependencies": {
+    "body-parser": "1.13.3",
+    "ejs": "2.3.4",
+    "express": "4.13.3",
+    "multer": "1.0.3"
+  }
+}

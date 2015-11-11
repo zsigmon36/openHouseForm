@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partial/header.ejs %>
+</head>
+
+<body style="background-image : url('../include/carousel/<%=background%>');">
+    <div class="content">
+        <div class="jumbotron header">
+            <div class="container">
+                <h1><%=title%></h1>
+                <p><%=description%></p>
+            </div>
+        </div>
+        <div class="container-fluid content">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6 form-overlay">
+                <div id="fail-validation-alert" class="alert alert-danger alert-dismissible">
+                    <p>Please Complete All Mandatory Fields</p>
+                </div>
+                <form class="form-horizontal" id="second-fm" action="/post-page2" method="post" autocomplete="off">
+                    <div class="input-group input-field">
+                        <label class="input-descriptor" for="howSoonBuying">How Soon Are You Looking To Buy?</label>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="howSoonBuying" value="-1" autofocus>Yesterday
+                            </label>
+                        </div>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="howSoonBuying" value="0-3">0-3 Months
+                            </label>
+                        </div>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="howSoonBuying" value="3-6">3-6 Months
+                            </label>
+                        </div>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="howSoonBuying" value="6-12">6-12 Months
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group input-field">
+                        <label class="input-descriptor" for="lookingToSell">Are You Looking To Sell?</label>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="lookingToSell" value="true">Yes
+                            </label>
+                        </div>
+                        <div class="radio input-field">
+                            <label>
+                                <input type="radio" name="lookingToSell" value="false">No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="input-group input-field">
+                        <label for="guestPhone" class="input-descriptor">What is Your Phone Number?</label>
+                        <input id="phone-input" class="form-control" type="tel" placeholder="512-555-5555" name="guestPhone" />
+                    </div>
+                    <div class="input-group input-field">
+                        <input class="btn btn-primary btn-lg some-margin" type="submit" value="Submit" />
+                        <input id="cancel-btn" class="btn btn-default btn-lg some-margin" type="submit" value="Cancel" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+    <% include ../partial/extras.ejs %>
+</body>
+
+</html>

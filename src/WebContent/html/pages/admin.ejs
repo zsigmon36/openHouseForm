@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<% include ../partial/header.ejs %>
+</head>
+
+<body>
+	<div id="admin-page-body-wrapper">
+		<div id="admin-header-container">
+			<div id="admin-header" class="jumbotron header">
+				<div id="header-content" class="container">
+					<h1 id="admin-header-title">Administration &amp; Configuration
+						Page</h1>
+					<p id="admin-header-description">Below are the options &amp;
+						settings available to customize</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="admin-page-body" class="container-fluid content container">
+			<div class="col-md-1"></div>
+			<div class="col-md-10 form-overlay">
+				<div class='top-margin'>
+					<label for="headerTitle" class="input-descriptor"
+						id="admin-header-title-label">Enter header title</label>
+				</div>
+				<div id="title-input-group" class="input-group">
+					<input id="header-title-input" type="text" class="form-control"
+						placeholder="Some example title" name="headerTitle"> <span
+						class="input-group-btn">
+						<button id="header-title-save-btn" class="btn btn-primary"
+							type="button">Save</button>
+					</span>
+				</div>
+
+				<div class='top-margin'>
+					<label for="headerDescription" class="input-descriptor"
+						id="admin-header-description-label">Enter header
+						description</label>
+				</div>
+				<div id="description-input-group" class="input-group">
+					<input id="header-description-input" type="text"
+						class="form-control" placeholder="Some example description"
+						name="headerDescription"> <span class="input-group-btn">
+						<button id="header-description-save-btn" class="btn btn-primary"
+							type="button">Save</button>
+					</span>
+				</div>
+
+				<div class="input-group input-field heavy">
+					<label id="admin-background-image-label" class="input-descriptor"
+						for="background-image">Select background image</label>
+					<div id="background-image-radio-container" class="input-box-border">
+						<div class="radio input-field">
+
+							<% if (pictures.length === 0){ %>
+							<p>no images found</p>
+							<% }
+                                for (var i=0 ; i < pictures.length; i++ ) { %>
+
+							<label> <input type="radio" name="background-image"
+								value="<%=pictures[i]%>"
+								<%=(pictures[i] === background)?'checked':''%>> <img
+								src="../include/carousel/<%=pictures[i]%>" class="img-thumbnail"
+								alt="<%=pictures[i]%>" width="152" height="118">
+							</label>
+
+							<% } %>
+
+						</div>
+					</div>
+				</div>
+				<div class="input-group-btn">
+					<button id="background-image-save-btn"
+						class="btn btn-primary full-btn" type="button">Save</button>
+				</div>
+
+				<div class="input-group input-field heavy">
+					<label id="admin-background-image-delete-label"
+						class="input-descriptor" for="background-image-delete">Select
+						image(s) to remove</label>
+					<div id="background-image-checkbox-container"
+						class="input-box-border">
+						<div class="checkbox input-field">
+
+							<% if (pictures.length === 0){ %>
+							<p>no images found</p>
+							<% }
+                            for (var i=0 ; i < pictures.length; i++ ) { %>
+
+							<label> <input type="checkbox"
+								name="background-image-delete" value="<%=pictures[i]%>"><img
+								src="../include/carousel/<%=pictures[i]%>" class="img-thumbnail"
+								alt="<%=pictures[i]%>" width="152" height="118">
+							</label>
+
+							<% } %>
+
+						</div>
+					</div>
+				</div>
+				<div class="input-group-btn">
+					<button id="background-image-delete-save-btn"
+						class="btn btn-primary full-btn admin-reload-warning"
+						type="button">Save</button>
+				</div>
+
+				<form id="image-upload-fm" enctype="multipart/form-data"
+					action="/upload-image" method="post">
+					<div class='top-margin'>
+						<label for="image-upload-btn" class="input-descriptor"
+							id="admin-image-upload-label">Add Image(s)</label>
+					</div>
+					<div id="image-upload-input-group" class="input-group">
+						<input id="image-upload-input-id" name="imageUploadInputName"
+							class="btn input-box-border form-control" type="file"
+							accept=".gif,.jpg,.jpeg,.png" multiple> <span
+							class="input-group-btn">
+							<button id="image-upload-save-btn"
+								class="btn btn-primary full-btn admin-reload-warning"
+								type="submit">Save</button>
+						</span>
+					</div>
+				</form>
+
+
+				<div class='top-margin'>
+					<label for="adminPass" class="input-descriptor"
+						id="admin-pass-label">Enter new administration password</label>
+				</div>
+				<div id="pass-change-input-group" class="input-group">
+					<input id="admin-pass-input" type="text" class="form-control"
+						placeholder="change_me!" name="adminPass"> <span
+						class="input-group-btn">
+						<button id="admin-pass-save-btn" class="btn btn-primary"
+							type="button">Save</button>
+					</span>
+				</div>
+
+				<div class='top-margin'>
+					<p class="input-descriptor" id="admin-csv-util-label">
+						Export or clear client CSV file</p>
+				</div>
+				<div id="admin-csv-util-group">
+					<span >
+						<a href="../../include/guests.csv"><button id="admin-csv-util-export-btn" class="btn btn-primary" type="button">Export</button></a>	
+						<button id="admin-csv-util-clear-btn" class="btn btn-cancel" type="button">Clear</button>
+					</span>
+				</div>
+
+				<div class="input-group input-field">
+					<input id="admin-page-done-btn" class="btn btn-primary btn-lg"
+						type="button" value="Done" />
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+
+		</div>
+	</div>
+	<div class="footer"></div>
+	<% include ../partial/extras.ejs %>
+</body>
+<footer>
+	<script type="text/javascript">
+		$('#admin-credentials-modal').modal('show');
+
+		if (
+	<%=uploadStatus%>
+		) {
+			serveAlert('#admin-image-upload-label', 'success');
+		}
+	</script>
+
+</footer>
+
+</html>
